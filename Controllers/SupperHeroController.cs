@@ -8,7 +8,7 @@ namespace SupperHeroAPI.Controllers
     public class SupperHeroController : ControllerBase
     {
 
-         public static List<SupperHero> supperheros = new List<SupperHero> {
+        public static List<SupperHero> supperheros = new List<SupperHero> {
                 new SupperHero {
                     Id = 1,
                     FirstName = "Tran",
@@ -34,10 +34,10 @@ namespace SupperHeroAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<SupperHero>>> GetSignleHero (int id)
+        public async Task<ActionResult<List<SupperHero>>> GetSignleHero(int id)
         {
             var hero = supperheros.Find(x => x.Id == id);
-            if(hero == null)
+            if (hero == null)
             {
                 return BadRequest("Item not found");
 
@@ -45,10 +45,10 @@ namespace SupperHeroAPI.Controllers
             return Ok(hero);
         }
         [HttpPost]
-        public async Task<ActionResult<List<SupperHero>>> AddHero (SupperHero hero)
+        public async Task<ActionResult<List<SupperHero>>> AddHero(SupperHero hero)
         {
             supperheros.Add(hero);
-            return Ok(supperheros); 
+            return Ok(supperheros);
         }
 
     }
